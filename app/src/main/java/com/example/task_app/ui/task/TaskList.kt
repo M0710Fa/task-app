@@ -1,13 +1,15 @@
 package com.example.task_app.ui.task
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
+import com.example.task_app.model.Task
 
 @Composable
-fun TaskList(){
-    Column() {
-        TaskCard()
+fun TaskList(taskList:List<Task>){
+    LazyColumn() {
+        items(taskList){ task->
+            TaskCard(task)
+        }
     }
 }
