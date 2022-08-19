@@ -5,3 +5,7 @@ data class Task(
     val id: Int,
     val title: String
 )
+
+data class Tasks(
+    val tasks: List<Task>
+)
