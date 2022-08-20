@@ -1,12 +1,17 @@
 package com.example.task_app.ui.task
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import com.example.task_app.model.Task
 
 @Composable
-fun TaskScreen(){
-    TaskList(taskList = sampleTaskList)
+fun TaskScreen(viewModel: TaskViewModel = TaskViewModel()){
+    val taskList by viewModel.taskList.observeAsState()
+
+    taskList?.let { TaskList(taskList = it) }
 }
+
 
 val sampleTaskList = listOf(
     Task(false, 0, "タスク1"),
